@@ -1,2 +1,2 @@
-let hello = 'from the other side'
-console.log(`hello ${hello}`)
+import { hello } from './modules/otherside';
+console.log(`hello ${ hello }`)
