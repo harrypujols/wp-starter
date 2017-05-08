@@ -1,2 +1,1 @@
-var hello = 'from the other side'
-export { hello }
+export let hello = 'from the other side'
