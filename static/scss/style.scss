@@ -1,0 +1,27 @@
+/*
+Theme Name: WP-Starter
+Author: Harry Pujols
+Author URI: http://harrypujols.com
+Description: Scaffolded theme using Twig
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: basic
+Tags: twig, timber
+*/
+
+/*--------------------------------------------------------------
+>>> Vendor:
+---------------------------------------------------------------*/
+@import 'vendor/__vendor.scss';
+/*--------------------------------------------------------------
+>>> Base:
+---------------------------------------------------------------*/
+@import 'base/__base.scss';
+/*--------------------------------------------------------------
+>>> globals:
+---------------------------------------------------------------*/
+@import 'globals/__globals.scss';
+/*--------------------------------------------------------------
+>>> components:
+---------------------------------------------------------------*/
+@import 'components/__components.scss';

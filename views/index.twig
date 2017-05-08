@@ -1,0 +1,10 @@
+{% extends 'templates/base.twig' %}
+{% block content %}
+  <ul>
+  {% for post in posts %}
+    <li><a href="{{ post.permalink }}">{{ post.title }}</a></li>
+  {% else %}
+    <li>Sorry, no posts matched your criteria</li>
+  {% endfor %}
+  </ul>
+{% endblock %}
