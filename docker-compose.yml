@@ -2,7 +2,7 @@ version: '3'
 
 services:
    db:
-     image: mysql:5.7
+     image: mysql:latest
      volumes:
        - db_data:/var/lib/mysql
      restart: always
@@ -16,6 +16,8 @@ services:
      depends_on:
        - db
      image: wordpress:latest
+     volumes:
+       - .:/wp-content/themes/wp-starter
      ports:
        - "8000:80"
      restart: always
@@ -24,7 +26,4 @@ services:
        WORDPRESS_DB_USER: wordpress
        WORDPRESS_DB_PASSWORD: wordpress
 volumes:
-    - db_data:
-    - ./:/app/wp-content/themes/wp-starter
-
-docker exec $(docker ps -lq) /bin/bash -c "wp plugin install timber --allow-root"
+    db_data:
