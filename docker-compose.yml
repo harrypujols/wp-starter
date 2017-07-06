@@ -25,6 +25,6 @@ services:
        WORDPRESS_DB_PASSWORD: wordpress
 volumes:
     - db_data:
-    - ./wp-content/themes/wp-starter:/app/wp-content/themes/wp-starter
+    - ./:/app/wp-content/themes/wp-starter
 
 docker exec $(docker ps -lq) /bin/bash -c "wp plugin install timber --allow-root"
