@@ -17,7 +17,7 @@ services:
        - db
      image: wordpress:latest
      volumes:
-       - .:/wp-content/themes/wp-starter
+       - ${PWD}:/var/www/html/wp-content/themes/wp-starter
      ports:
        - "8000:80"
      restart: always
