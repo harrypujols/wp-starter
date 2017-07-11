@@ -4,7 +4,8 @@
   "description": "twig theme",
   "main": "gulpfile.js",
   "scripts": {
-    "start": "gulp"
+    "start": "gulp",
+    "server": "gulp serve"
   },
   "keywords": [
     "wordpress",

@@ -6,12 +6,13 @@ var gulp = require('gulp'),
     browserify = require('browserify'),
     babelify = require('babelify'),
     source = require('vinyl-source-stream'),
-    buffer = require('vinyl-buffer');
+    buffer = require('vinyl-buffer'),
+    exec = require('child_process').exec;
 
 gulp.task('sass', function () {
   return gulp.src('./src/static/scss/style.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('./src'))
     .pipe(livereload());
 });
 
@@ -27,7 +28,15 @@ gulp.task('babel', function () {
   return b.bundle()
     .pipe(source('scripts.js'))
     .pipe(buffer())
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest('./src'));
+});
+
+gulp.task('serve', function (cb) {
+  exec('docker-compose up -d', function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
 });
 
 gulp.task('default', function () {
