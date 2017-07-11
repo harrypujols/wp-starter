@@ -15,9 +15,9 @@ services:
    wordpress:
      depends_on:
        - db
-     image: wordpress:latest
+     image: harrypujols/wp-starter:latest
      volumes:
-       - ${PWD}:/var/www/html/wp-content/themes/wp-starter
+       - ./src:/var/www/html/wp-content/themes/wp-starter
      ports:
        - "8000:80"
      restart: always

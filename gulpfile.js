@@ -9,7 +9,7 @@ var gulp = require('gulp'),
     buffer = require('vinyl-buffer');
 
 gulp.task('sass', function () {
-  return gulp.src('./static/scss/style.scss')
+  return gulp.src('./src/static/scss/style.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./'))
     .pipe(livereload());
@@ -17,7 +17,7 @@ gulp.task('sass', function () {
 
 gulp.task('babel', function () {
   var b = browserify({
-  entries: './static/js/index.js',
+  entries: './src/static/js/index.js',
   debug: true,
 	transform: [babelify.configure({
 		  presets: ['es2015']
@@ -32,6 +32,6 @@ gulp.task('babel', function () {
 
 gulp.task('default', function () {
   livereload.listen();
-  gulp.watch('./static/scss/**/*.scss', ['sass']);
-  gulp.watch('./static/js/**/*.js', ['babel']);
+  gulp.watch('./src/static/scss/**/*.scss', ['sass']);
+  gulp.watch('./src/static/js/**/*.js', ['babel']);
 });
