@@ -15,7 +15,7 @@ services:
    wordpress:
      depends_on:
        - db
-     image: harrypujols/wp-starter:latest
+     image: visiblevc/wordpress:latest
      volumes:
        - ./src:/var/www/html/wp-content/themes/wp-starter
      ports:
@@ -25,5 +25,9 @@ services:
        WORDPRESS_DB_HOST: db:3306
        WORDPRESS_DB_USER: wordpress
        WORDPRESS_DB_PASSWORD: wordpress
+       PLUGINS: >-
+         timber
+       THEMES: >-
+         [local]wp-starter
 volumes:
     db_data:
