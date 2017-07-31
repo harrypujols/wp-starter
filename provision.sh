@@ -91,14 +91,15 @@ sudo mv wp-cli.phar /usr/local/bin/wp
 sudo rm /var/www/html/index.html
 cd /var/www/html/
 wp core download --allow-root
+sudo chmod -R 777 /var/www
 wp config create --dbname=$PROJECT --dbuser=$PASSWORD --dbpass=$PASSWORD --allow-root
-wp core install --url=localhost:8000 --title=wp-starter --admin_user=admin --admin_password=password --admin_email=hpujols@sullivannyc.com --allow-root
-wp plugin install timber --allow-root
+wp core install --url=localhost:$PORT --title=wp-starter --admin_user=admin --admin_password=password --admin_email=webmaster@localhost.local --allow-root
+wp plugin install timber-library --allow-root
 
 # installing theme
 ln -s /home/vagrant/shared/ /var/www/html/wp-content/themes/wp-starter
-# wp theme activate wp-starter --allow-root
-# wp plugin activate timber --allow-root
+wp theme activate wp-starter --allow-root
+wp plugin activate timber-library --allow-root
 
 # all done
 echo "${PROJECT} username is \"admin\" password is \"password\""
