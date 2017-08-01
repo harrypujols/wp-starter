@@ -95,6 +95,7 @@ wp core download --allow-root
 wp config create --dbname=$PROJECT --dbuser=$PASSWORD --dbpass=$PASSWORD --allow-root
 wp core install --url=localhost:$PORT --title=wp-starter --admin_user=admin --admin_password=password --admin_email=webmaster@localhost.local --allow-root
 wp plugin install timber-library --allow-root
+# wp rewrite structure /%postname%/ --allow-root
 
 # installing theme
 ln -s /home/vagrant/shared/ /var/www/html/wp-content/themes/wp-starter
