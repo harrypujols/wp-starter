@@ -32,7 +32,7 @@ gulp.task('babel', function () {
 });
 
 gulp.task('serve', function (cb) {
-  exec('docker-compose up -d', function (err, stdout, stderr) {
+  exec('vagrant up', function (err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
     cb(err);
