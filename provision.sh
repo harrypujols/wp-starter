@@ -89,9 +89,9 @@ sudo mv wp-cli.phar /usr/local/bin/wp
 
 # installing wordpress
 sudo rm /var/www/html/index.html
+sudo chmod -R 777 /var/www
 cd /var/www/html/
 wp core download --allow-root
-sudo chmod -R 777 /var/www
 wp config create --dbname=$PROJECT --dbuser=$PASSWORD --dbpass=$PASSWORD --allow-root
 wp core install --url=localhost:$PORT --title=wp-starter --admin_user=admin --admin_password=password --admin_email=webmaster@localhost.local --allow-root
 wp plugin install timber-library --allow-root
@@ -100,6 +100,11 @@ wp plugin install timber-library --allow-root
 ln -s /home/vagrant/shared/ /var/www/html/wp-content/themes/wp-starter
 wp theme activate wp-starter --allow-root
 wp plugin activate timber-library --allow-root
+
+# passing over the permissions
+sudo adduser vagrant www-data
+sudo chown -R www-data:www-data /var/www
+sudo chmod -R g+rwX /var/www
 
 # all done
 echo "${PROJECT} username is \"admin\" password is \"password\""
