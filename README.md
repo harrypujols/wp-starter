@@ -14,3 +14,10 @@ Run `vagrant up` to setup backend, running at localhost:8000.
 Run `npm start` to begin theme development.
 
 As an alternative, you can run `npm run server` to start vagrant.
+
+## edit
+To login to Wordpress administration dashboard, use these credentials:
+
+**USER:** admin
+
+**PASSWORD:** password
