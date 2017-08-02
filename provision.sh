@@ -73,9 +73,6 @@ sudo a2ensite $PROJECT.local.conf
 # change apache configurations
 sudo sed -i "/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride all/" /etc/apache2/apache2.conf
 
-# restart apache
-sudo service apache2 restart
-
 # install git
 sudo apt-get -y install git
 
@@ -95,7 +92,7 @@ wp core download --allow-root
 wp config create --dbname=$PROJECT --dbuser=$PASSWORD --dbpass=$PASSWORD --allow-root
 wp core install --url=localhost:$PORT --title=wp-starter --admin_user=admin --admin_password=password --admin_email=webmaster@localhost.local --allow-root
 wp plugin install timber-library --allow-root
-# wp rewrite structure /%postname%/ --allow-root
+wp rewrite structure /%postname%/ --allow-root
 
 # installing theme
 ln -s /home/vagrant/shared/ /var/www/html/wp-content/themes/wp-starter
@@ -106,6 +103,9 @@ wp plugin activate timber-library --allow-root
 sudo adduser vagrant www-data
 sudo chown -R www-data:www-data /var/www
 sudo chmod -R g+rwX /var/www
+
+# restart apache
+sudo service apache2 restart
 
 # all done
 echo "${PROJECT} username is \"admin\" password is \"password\""
